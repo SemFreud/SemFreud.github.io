@@ -1,1 +1,27 @@
-hello,world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="static/js/module/vue.js"></script>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-col-md2 list">
+        <div id="app">
+            {{ message }}
+            <ul>
+                <li v-for="item in data">
+                    {{item.msg}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+
+</html>
