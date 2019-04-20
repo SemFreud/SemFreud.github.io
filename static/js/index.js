@@ -1,10 +1,14 @@
 var nav= new Vue({
     el: '#nav',
     data: {
-        names: [
-            { name: '学习 JavaScript' },
-            { name: '学习 Vue' },
-            { name: '整个牛项目' }
-        ]
+        nav_list:''
+    },
+    methods:{
+
+    },
+    created: function () {
+        this.$http.get("static/data/index_bar.json").then(function (res) {
+            this.nav_list = res.body.name_list
+        })
     }
 })

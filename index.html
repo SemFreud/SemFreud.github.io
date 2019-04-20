@@ -4,24 +4,46 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="index.css">
     <script src="static/js/module/vue.js"></script>
+    <script src="static/js/module/vue-resource.min.js"></script>
+    <link rel="stylesheet" href="static/css/layui.css">
 </head>
 <body>
 <div class="layui-container">
-    <div class="layui-col-md2 list">
-        <div id="app">
-            {{ message }}
-            <ul>
-                <li v-for="item in data">
-                    {{item.msg}}
-                </li>
-            </ul>
+    <div class="layui-row">
+        <div class="layui-col-lg12" style="background-color: #555555;text-align: center">
+            <img src="static/images/logo.jpeg" style="height: 50px;width: 50px; float: left">
+            <h1>个人主页</h1>
         </div>
+
+
+
+
+        <div class="layui-col-md3" style="background-color: #777777">
+            <div id="nav">
+                <ul>
+                    <li v-for="item in nav_list">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="layui-col-md9" style="background-color: #77554b;height: 200px">
+<!--            <div id="content">-->
+<!--                <ul>-->
+<!--                    <li v-for="item in nav_list">-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+        </div>
+
     </div>
 </div>
 
-<script src="index.js"></script>
+<script src="static/js/index.js"></script>
 </body>
 
 </html>
