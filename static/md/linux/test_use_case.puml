@@ -1,0 +1,37 @@
+@startuml
+':Main Admin: as Admin
+'(Use the application) as (Use)
+'
+'User -> (Start)
+'User --> (Use)
+'
+'Admin ---> (Use)
+'
+'note right of Admin : This is an example.
+'
+'note right of (Use)
+'A note can also
+'be on several lines
+'end note
+'
+'note "This note is connected\nto several objects." as N2
+'(Start) .. N2
+'N2 .. (Use)
+
+
+
+高可用服务注册中心 <-- 高可用服务集群:注册
+高可用服务注册中心 <-- 配置中心:注册
+高可用服务注册中心 <-- 网关:注册
+高可用服务注册中心 <-- 任务分发器:注册
+
+高可用服务集群 <-- 配置中心:拉取配置
+高可用服务集群 <-- 网关:负载
+
+配置中心 <-- git:拉取配置
+网关 <-- 任务分发器:发送请求
+网关 --> 任务分发器:响应请求
+
+任务分发器 <-- 配置中心:刷新配置
+任务分发器 <-- 浏览器:管理服务集群
+@enduml

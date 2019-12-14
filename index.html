@@ -1,47 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+<!--    <meta charset="UTF-8">-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Title</title>
 
     <script src="static/js/module/vue.js"></script>
     <script src="static/js/module/vue-resource.min.js"></script>
+    <script src="static/js/module/showdown.js"></script>
     <link rel="stylesheet" href="static/css/layui.css">
+
 </head>
 <body>
-<div class="layui-container">
-    <div class="layui-row">
-        <div class="layui-col-lg12" style="background-color: #555555;text-align: center">
-            <img src="static/images/logo.jpeg" style="height: 50px;width: 50px; float: left">
+<!--<div class="layui-container">-->
+    <div class="layui-row" id="global">
+        <div class="layui-col-lg12" style="text-align: center">
             <h1>个人主页</h1>
         </div>
-
-        <a href="static/file/rm.sh">rm.sh</a>
-
 
         <div class="layui-col-md3" style="background-color: #777777">
             <div id="nav">
                 <ul>
                     <li v-for="item in nav_list">
-                        {{item.name}}
+                        <a v-on:click="getFile(item.url)"><span>{{item.name}}</span><span>{{item.date}}</span></a>
                     </li>
                 </ul>
             </div>
         </div>
 
-
-
-        <div class="layui-col-md9" style="background-color: #77554b;height: 200px">
-<!--            <div id="content">-->
-<!--                <ul>-->
-<!--                    <li v-for="item in nav_list">-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
+        <div class="layui-col-md9" id="md_content" >
+            {{md_content}}
         </div>
 
     </div>
-</div>
+<!--</div>-->
 
 <script src="static/js/index.js"></script>
 </body>

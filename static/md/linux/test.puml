@@ -1,0 +1,89 @@
+@startuml
+
+class 高可用服务集群 {
+  Eureka Client
+  Config Client
+  BUS
+  ServiceA-1,ServiceA-2   ()
+  ServiceB-1,ServiceB-2   ()
+  ServiceC-1,ServiceC-2   ()
+}
+
+class 高可用服务注册中心{
+  Eureka Server
+  eurekaA_1() eurekaA_2()
+  eurekaB_1() eurekaB_2()
+  eurekaC_1() eurekaC_2()
+}
+
+class 网关{
+  GateWay
+  Eureka Client
+  Config Client
+  gateway1()
+  gateway2()
+}
+
+class 配置中心{
+  Config Server
+  Eureka Client
+  service properties()
+  service cron (服务cron表达式)
+}
+
+class 任务分发器{
+  Eureka Client
+  Config Client
+  BUS
+  instance1
+  instance2
+  刷新配置中心服务的配置()
+  经过网关发送给服务集群()
+}
+
+class git{
+  服务cron表达式
+  服务配置
+}
+
+class 浏览器{
+  Spring RestController
+  add service(Properties)
+  remove service()
+  add instance(serviceName, Properties )
+  remove service(serviceName)
+  update Properties(serviceName, Properties)
+}
+
+class Data{
+  Eureka Client
+  Data NAS File
+  Data Redis
+  Data ElasticSearch
+  Data MySQL
+  为服务提供读写服务()
+}
+
+class Rabbit {
+  cloud BUS
+}
+
+高可用服务注册中心 <-- 高可用服务集群:注册
+高可用服务注册中心 <-- 配置中心:注册
+高可用服务注册中心 <-- 网关:注册
+高可用服务注册中心 <-- 任务分发器:注册
+
+高可用服务集群 <-- 网关:负载
+高可用服务集群 --> Data:持久化
+高可用服务集群 <-- Rabbit:刷新配置
+
+配置中心 <-- git:拉取配置
+Rabbit <-- 配置中心:发送配置
+
+网关 <-- 任务分发器:发送请求
+网关 --> 任务分发器:响应请求
+
+任务分发器 <-- 浏览器:管理服务集群
+
+Rabbit --> 任务分发器:刷新配置
+@enduml
