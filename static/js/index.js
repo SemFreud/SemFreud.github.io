@@ -4,7 +4,7 @@ var nav = new Vue({
         nav_list: '',
         md_content: '',
         curr_file_info: {
-            name: '',
+            file_name: '',
             date: ''
         }
     },
@@ -15,7 +15,7 @@ var nav = new Vue({
                 var html = converter.makeHtml(res.body);
                 document.getElementById("md_content").innerHTML = html;
                 this.curr_file_info.date = item.date
-                this.curr_file_info.name = item.name
+                this.curr_file_info.file_name = item.name
             })
         }
     },
