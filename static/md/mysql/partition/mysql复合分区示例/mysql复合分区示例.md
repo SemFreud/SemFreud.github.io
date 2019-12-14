@@ -158,7 +158,7 @@ partition p2019120523 VALUES LESS THAN (1575558000)
     }
 ```
 
-#### 调用脚本(request_api.sh)
+#### 调用脚本
 ```
 #!/usr/bin/env bash
 
@@ -201,8 +201,8 @@ done
 1	SIMPLE	test_yd_table	p2019120513_p2019120513sp2	index		PRIMARY	51		67994	1.11	Using where; Using index
 ```
 
+![截屏2019-12-0512.13.53.png](https://upload-images.jianshu.io/upload_images/2494590-a40c129dbb62acf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![](/Users/amber/IdeaProjects/blog/redis/redis旧版复制功能/redis-旧版复制功能过程.png)
 
 只使用了一个分区，节省了查询时间。
 不过这种方式太过理想。
@@ -256,17 +256,22 @@ done
 #### 比较几次常规查询
 ###### 1.不使用where
 不使用where属于全表查询了，所以explain查找了全部的分区。
+![不实用where-explain.png](https://upload-images.jianshu.io/upload_images/2494590-a49d618f4300e2c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 查看数据，发现code列的都是mod%3==0的数值，time列不是按顺序来展示，
 所以是先返回了第一个分区(`test_yd_table#P#p2019120513#SP#p2019120513sp0.ibd`)的数据。
+![不使用where-select.png](https://upload-images.jianshu.io/upload_images/2494590-25fa41629bb7ea46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ###### 2.使用where create_time
 
 使用where+ create_time来查询，在explain里是查找了小时段的分区。
+![使用where+时间-explain.png](https://upload-images.jianshu.io/upload_images/2494590-c8c823d8d7e1993a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 查看数据，发现code列的都是mod%3==0的数值，time列不是按顺序来展示，
 所以是先返回了第一个分区(`test_yd_table#P#p2019120513#SP#p2019120513sp0.ibd`)的数据。
+![使用where+时间-select.png](https://upload-images.jianshu.io/upload_images/2494590-684dbaddf4919869.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ###### 3.使用where code
@@ -274,13 +279,23 @@ done
 使用where+ code来查询，在explain里是查找了每个小时段sp2分区的数据，
 `110000%3 = 2`
 目前 只插入了 一个小时的数据。
+![使用where+code-explain.png](https://upload-images.jianshu.io/upload_images/2494590-f91baa0259cbb911.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 查看数据,code都是110000 ，时间是顺序展示。
+![使用where+code-select.png](https://upload-images.jianshu.io/upload_images/2494590-37fba53720f9aa63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###### 4.使用where create_time code
 
 
 使用where+ create_time code来查询，在explain里是查找了1个小时段sp2分区的数据，
 只查了分区`test_yd_table#P#p2019120513#SP#p2019120513sp2.ibd`
+![使用where+时间+code-explain.png](https://upload-images.jianshu.io/upload_images/2494590-b26324afadccd58d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 查看数据,code都是110000 ，时间是顺序展示。
+![使用where+时间+code-select.png](https://upload-images.jianshu.io/upload_images/2494590-5dbfc0fd247c4990.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+
+这种分区方式要视实际情况而定，
+目前能满足按时间段查省份数据，在业务上，大批量的流水数据需要加时间。

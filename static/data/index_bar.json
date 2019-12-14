@@ -4,42 +4,90 @@
       "name": "java8-FunctionalInterface",
       "date": "2019-11-26",
       "url": "static/md/java/java8/lambda/java8-lambda(FunctionalInterface).md"
+    },
+    {
+      "name": "Spliterator",
+      "date": "2019-11-04",
+      "url": "static/md/java/java8/stream/java8-parallel(Spliterator).md"
+    },
+    {
+      "name": "BaseSteam流",
+      "date": "2019-11-04",
+      "url": "static/md/java/java8/stream/java8-流(BaseStream).md"
+    },
+    {
+      "name": "Stream流",
+      "date": "2019-11-04",
+      "url": "static/md/java/java8/stream/java8-流(Stream).md"
+    },
+    {
+      "name": "数值流",
+      "date": "2019-11-04",
+      "url": "static/md/java/java8/stream/java8-流(数值流).md"
+    },
+    {
+      "name": "位运算",
+      "date": "2019-11-04",
+      "url": "static/md/java/位运算/位运算整理.md"
     }
   ],
   "设计模式": [
     {
       "name": "建造者模式",
       "date": "2019-12-14",
-      "url": "static/md/design-mode/建造者模式.md",
-      "type": "设计模式"
+      "url": "static/md/design-mode/建造者模式.md"
     },
     {
       "name": "模版模式",
       "date": "2019-12-14",
-      "url": "static/md/design-mode/模版模式.md",
-      "type": "设计模式"
+      "url": "static/md/design-mode/模版模式.md"
     }
   ],
   "docker": [
     {
       "name": "docker-网络",
       "date": "2019-08-12",
-      "url": "static/md/docker/docker-network-commands.md",
-      "type": "docker"
+      "url": "static/md/docker/docker-network-commands.md"
     },
     {
       "name": "docker-网络-创建",
       "date": "2019-08-12",
-      "url": "static/md/docker/docker-network-create.md",
-      "type": "docker"
+      "url": "static/md/docker/docker-network-create.md"
     },
     {
       "name": "docker-网络-连接",
       "date": "2019-08-12",
-      "url": "static/md/docker/docker-network-connect.md",
-      "type": "docker"
+      "url": "static/md/docker/docker-network-connect.md"
     }
   ],
   "linux": [
+    {
+      "name": "mac|linux安全删除",
+      "date": "2019-12-12",
+      "url": "static/md/linux/mac|linux安全删除.md"
+    },
+    {
+      "name": "查看磁盘占用",
+      "date": "2019-07-12",
+      "url": "static/md/linux/查看系统磁盘占用.md"
+    },
+    {
+      "name": "linux常用命令",
+      "date": "2019-10-11",
+      "url": "static/md/linux/linux常用命令.md"
+    }
+
+  ],
+  "mysql": [
+    {
+      "name": "mysql复合分区示例",
+      "date": "2019-10-28",
+      "url": "static/md/mysql/partition/mysql复合分区示例/mysql复合分区示例.md"
+    },
+    {
+      "name": "索引的分类",
+      "date": "2019-10-25",
+      "url": "static/md/mysql/索引/索引的分类.md"
+    }
   ]
 }
