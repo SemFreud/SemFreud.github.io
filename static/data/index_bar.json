@@ -3,32 +3,38 @@
     {
       "name": "建造者模式",
       "date": "2019-12-14",
-      "url": "static/md/design-mode/建造者模式.md"
+      "url": "static/md/design-mode/建造者模式.md",
+      "type": "设计模式"
     },
     {
       "name": "模版模式",
       "date": "2019-12-14",
-      "url": "static/md/design-mode/模版模式.md"
+      "url": "static/md/design-mode/模版模式.md",
+      "type": "设计模式"
     },
     {
       "name": "docker-网络",
       "date": "2019-08-12",
-      "url": "static/md/docker/docker-network-commands.md"
+      "url": "static/md/docker/docker-network-commands.md",
+      "type": "docker"
     },
     {
       "name": "docker-网络-创建",
       "date": "2019-08-12",
-      "url": "static/md/docker/docker-network-create.md"
+      "url": "static/md/docker/docker-network-create.md",
+      "type": "docker"
     },
     {
       "name": "docker-网络-连接",
       "date": "2019-08-12",
-      "url": "static/md/docker/docker-network-connect.md"
+      "url": "static/md/docker/docker-network-connect.md",
+      "type": "docker"
     },
     {
       "name": "java8-FunctionalInterface",
       "date": "2019-11-26",
-      "url": "static/md/java/java8/lambda/java8-lambda(FunctionalInterface).md"
+      "url": "static/md/java/java8/lambda/java8-lambda(FunctionalInterface).md",
+      "type": "java"
     }
   ]
 }
