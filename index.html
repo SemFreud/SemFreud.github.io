@@ -1,15 +1,15 @@
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v="http://www.w3.org/1999/xhtml">
 <head>
-    <!--    <meta charset="UTF-8">-->
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Title</title>
+    <title>SemFreud's blog</title>
 
     <script src="static/js/module/vue.js"></script>
     <script src="static/js/module/vue-resource.min.js"></script>
     <script src="static/js/module/showdown.js"></script>
+    <script src="static/js/module/showdown-table.js"></script>
     <link rel="stylesheet" href="static/css/layui.css">
-
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/markdown.css">
 </head>
 <body>
 <!--<div class="layui-container">-->
@@ -18,20 +18,20 @@
         <h1>个人主页-----正在搭建中···</h1>
     </div>
 
-    <div class="layui-col-md3" style="background-color: #777777">
+    <div class="layui-col-md3 index-nav height-100-%">
         <div id="nav">
             <ul>
-                <div v-for="item in nav_list">
+                <div v-for="item in nav_list" class="padding-top-10">
                     <li>
-                        <a v-on:click="getFile(item.url)" style="font-size:x-large ">{{item.name}}
-                        </a><span style="float: right">{{item.date}}</span>
+                        <a v-on:click="getFile(item.url)" style="font-size:x-large ">{{item.name}}</a>
+                        <p style="color: #305fcc"> {{item.date}}</p>
                     </li>
                 </div>
             </ul>
         </div>
     </div>
 
-    <div class="layui-col-md9" id="md_content" style="height: 500px;overflow-y: scroll;">
+    <div class="layui-col-md9 height-100-% index-nav" id="md_content" style="overflow-y: scroll">
         {{md_content}}
     </div>
 

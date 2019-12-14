@@ -1,5 +1,5 @@
-
 ### 函数式接口@FunctionalInterface 
+
 ---
 
 ##### 作用:
@@ -58,45 +58,6 @@ class Test {
 ##### 总结:
 @FunctionalInterface接口充当标记作用，显式的声明了一个接口只允许一个抽象方法
 
-#### Consumer接口
-(java.util.function.Consumer)
-> 定义了一个accept方法，1个入参无出参。
->
-> 引申的Consumer接口也是没有出参的。
-
-
-接口|入参类型
-:-:|:-:
-Consumer<T\>|T
-IntConsumer|int
-LongConsumer|long
-DoubleConsumer|double
-ObjDoubleConsumer<T\>|T,double
-ObjIntConsumer<T\>|T,int
-ObjLongConsumer<T\>|T,long
-BiConsumer<T,U>|T,U
-
-##### Consumer的使用
-Consumer意味着消费，java这里定义的方法是没有返回值的，只有一个入参。
-所以在实际使用的过程中，consumer接口可以用来提交一个无需结果的一个方法。
-
-1. 首先定义一个方法，无返回值，一个对象参数，一个Consumer接口参数。
-```
-    private static void testConsumer(int a , Consumer<Integer> action){
-        action.accept(a);
-    }
-```
-2. 在main方法里调用这个方法，传一个int参数，即lambda表达式作为入参 。
-```
-    public static void main(String[] args) {
-        testConsumer(30 , p->{
-            System.out.println(p);
-        });
-    }
-```
-其中 p->{}，这一块代码为Consumer接口的里accept方法的具体实现，这里将方法作为参数传入到
-testConsumer(int a , Consumer<Integer> action)方法内。
-当然，传入的方法只是做了一个简单的打印。
 
 
 
@@ -107,16 +68,16 @@ testConsumer(int a , Consumer<Integer> action)方法内。
 > 引申的Consumer接口也是没有出参的。
 
 
-接口|入参类型
-:-:|:-:
-Consumer<T\>|T
-IntConsumer|int
-LongConsumer|long
-DoubleConsumer|double
-ObjDoubleConsumer<T\>|T,double
-ObjIntConsumer<T\>|T,int
-ObjLongConsumer<T\>|T,long
-BiConsumer<T,U>|T,U
+|接口|入参类型|
+|===|======|
+|Consumer<T\>|T|
+|IntConsumer|int|
+|LongConsumer|long|
+|DoubleConsumer|double|
+|ObjDoubleConsumer<T\>|T,double|
+|ObjIntConsumer<T\>|T,int|
+|ObjLongConsumer<T\>|T,long|
+|BiConsumer<T,U>|T,U|
 
 ##### Consumer的使用
 Consumer意味着消费，java这里定义的方法是没有返回值的，只有一个入参。
@@ -149,25 +110,25 @@ testConsumer(int a , Consumer<Integer> action)方法内。
 > 引申的Function接口也是有出参的。
 
 
-接口|入参类型|出参类型
-:-:|:-:|:-:
-Function<T,R>|T|R
-DoubleFunction<R\>|double|R
-IntFunction<R\>|int|R
-LongFunction<R\>|long|R
-ToDoubleFunction<T\>|T|double
-ToIntFunction<T\>|T|int
-ToLongFunction<T\>|T|long
-DoubleToIntFunction|double|int
-DoubleToLongFunction|double|long
-IntToDoubleFunction|int|double
-IntToLongFunction|int|long
-LongToDoubleFunction|long|double
-LongToIntFunction|long|int
-BiFunction<T,U,R>|T,U|R
-ToDoubleBiFunction<T,U>|T,U|double
-ToIntBiFunction<T,U>|T,U|int
-ToLongBiFunction<T,U>|T,U|long
+|接口|入参类型|出参类型|
+|===|=======|=======|
+|Function<T,R>|T|R|
+|DoubleFunction<R\>|double|R|
+|IntFunction<R\>|int|R|
+|LongFunction<R\>|long|R|
+|ToDoubleFunction<T\>|T|double|
+|ToIntFunction<T\>|T|int|
+|ToLongFunction<T\>|T|long|
+|DoubleToIntFunction|double|int|
+|DoubleToLongFunction|double|long|
+|IntToDoubleFunction|int|double|
+|IntToLongFunction|int|long|
+|LongToDoubleFunction|long|double|
+|LongToIntFunction|long|int|
+|BiFunction<T,U,R>|T,U|R|
+|ToDoubleBiFunction<T,U>|T,U|double|
+|ToIntBiFunction<T,U>|T,U|int|
+|ToLongBiFunction<T,U>|T,U|long|
 
 
 
@@ -178,13 +139,13 @@ ToLongBiFunction<T,U>|T,U|long
 > 引申的Predicate接口也是boolean出参
 
 
-接口|入参类型
-:-:|:-:
-Predicate<T\>|T
-DoublePredicate|double
-IntPredicate|int
-LongPredicate|long
-BiPredicate<T,U>|T,U
+|接口|入参类型|出参类型|
+|===|=======|======|
+|Predicate<T\>|T|boolean|
+|DoublePredicate|double|boolean|
+|IntPredicate|int|boolean|
+|LongPredicate|long|boolean|
+|BiPredicate<T,U>|T,U|boolean|
 
 
 
@@ -194,12 +155,11 @@ BiPredicate<T,U>|T,U
 >
 > 引申的Supplier接口也是有出参的。
 
-接口|出参类型
-:-:|:-:
-Supplier<T\>|T
-BooleanSupplier|boolean
-DoubleSupplier|double
-IntSupplier|int
-LongSupplier|long
-
-
+|接口 |出参类型 |
+|====|========|
+|Supplier<T\>|T|
+|BooleanSupplier|boolean|
+|DoubleSupplier|double|
+|IntSupplier|int|
+|LongSupplier|long|
+                                        |

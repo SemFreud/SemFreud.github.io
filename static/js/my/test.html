@@ -28,7 +28,7 @@
     <!--<&#45;&#45;设置id为oriContent，如果想实现实时更新，使用onkeyup方法&#45;&#45;!>-->
 
     <textarea id="oriContent" style="height:400px;width:600px;" onkeyup="convert()"></textarea>
-    <button onclick="showMDFile()">读取文件</button>
+<!--    <button onclick="showMDFile()">读取文件</button>-->
     <!--<-&#45;&#45;设置展示的div添加id-!>-->
     <div id="result" style="height: 500px;width:1000px;"></div>
 </div>
@@ -39,32 +39,7 @@
         var text = document.getElementById("oriContent").value;
         var converter = new showdown.Converter();
         var html = converter.makeHtml(text);
-        document.getElementById("result").innerHTML = html;
-    }
-
-    function showMDFile() {
-
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", "../../md/design-mode/建造者模式", true);
-        console.log(rawFile.status)
-        // var file = "../../md/design-mode/建造者模式".files[0]
-        //
-        // var reader = new FileReader()
-        // reader.readAsText(file,"gb2312")
-        // reader.onload = function (f) {
-        //     console.log(f)
-        // }
-
-
-    }
-    function compile(){
-        //获取要转换的文字
-        var text = document.getElementById("content").value;
-        //创建实例
-        var converter = new showdown.Converter();
-        //进行转换
-        var html = converter.makeHtml(text);
-        //展示到对应的地方  result便是id名称
+        console.log(html)
         document.getElementById("result").innerHTML = html;
     }
 </script>

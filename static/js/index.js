@@ -6,12 +6,11 @@ var nav = new Vue({
     },
     methods: {
         getFile: function (md_file_url) {
-            console.log(md_file_url)
+            // console.log(md_file_url)
             this.$http.get(md_file_url).then(function (res) {
-                console.log(res.body)
+                // console.log(res.body)
                 // this.md_content = res.body
-                var converter = new showdown.Converter();
-
+                var converter = new showdown.Converter({extensions: ['table']})
                 var html = converter.makeHtml(res.body);
                 console.log(html)
                 document.getElementById("md_content").innerHTML = html;
