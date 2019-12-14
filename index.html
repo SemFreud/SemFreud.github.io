@@ -2,12 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>SemFreud's blog</title>
-
-    <script src="static/js/module/vue.js"></script>
-    <script src="static/js/module/vue-resource.min.js"></script>
-    <script src="static/js/module/showdown.js"></script>
-    <script src="static/js/module/showdown-table.js"></script>
-    <link rel="stylesheet" href="static/css/layui.css">
+    <link rel="stylesheet" href="static/lay/css/layui.css">
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="static/css/markdown.css">
 </head>
@@ -17,28 +12,36 @@
     <div class="layui-col-lg12" style="height:200px;text-align: center;background-color: #2D6E77">
         <h1>个人主页-----正在搭建中···</h1>
     </div>
-
-    <div class="layui-col-md3 index-nav height-100-%">
-        <div id="nav">
-            <ul>
-                <div v-for="item in nav_list" class="padding-top-10">
-                    <li>
-                        <a v-on:click="getFile(item.url)" style="font-size:x-large ">{{item.name}}</a>
-                        <p style="color: #305fcc"> {{item.date}}</p>
-                    </li>
-                </div>
-            </ul>
-        </div>
+    <div class="layui-col-md3 nav-height-100-%">
+        <ul class="layui-nav layui-nav-tree layui-bg-cyan layui-inline nav-height-100-%" lay-filter="demo">
+            <li class="layui-nav-item layui-nav-itemed" v-for="(value,key,index) in nav_list">
+                <a href="javascript:;">{{key}}</a>
+                <dl class="layui-nav-child">
+                    <dd v-for="item in value">
+                        <a v-on:click="getFile(item)">{{item.name}}&nbsp;<span>({{item.date}})</span></a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
     </div>
-
-    <div class="layui-col-md9 height-100-% index-nav" id="md_content" style="overflow-y: scroll">
-        {{md_content}}
+    <div class="layui-col-md9 content-height-100-% index-nav" style="overflow-y: scroll">
+        <h1>{{curr_file_info.name}}</h1>
+        <h5>{{curr_file_info.date}}</h5>
+        <div id="md_content"></div>
     </div>
-
 </div>
-<!--</div>-->
 
+<script src="static/js/module/vue.js"></script>
+<script src="static/js/module/vue-resource.min.js"></script>
+<script src="static/js/module/showdown.js"></script>
+<script src="static/js/module/showdown-table.js"></script>
 <script src="static/js/index.js"></script>
+<script src="static/lay/layui.js"></script>
+<script>
+    layui.use('element', function () {
+    });
+</script>
+
 </body>
 
 </html>

@@ -1,5 +1,12 @@
 {
-  "name_list": [
+  "java": [
+    {
+      "name": "java8-FunctionalInterface",
+      "date": "2019-11-26",
+      "url": "static/md/java/java8/lambda/java8-lambda(FunctionalInterface).md"
+    }
+  ],
+  "设计模式": [
     {
       "name": "建造者模式",
       "date": "2019-12-14",
@@ -11,7 +18,9 @@
       "date": "2019-12-14",
       "url": "static/md/design-mode/模版模式.md",
       "type": "设计模式"
-    },
+    }
+  ],
+  "docker": [
     {
       "name": "docker-网络",
       "date": "2019-08-12",
@@ -29,12 +38,8 @@
       "date": "2019-08-12",
       "url": "static/md/docker/docker-network-connect.md",
       "type": "docker"
-    },
-    {
-      "name": "java8-FunctionalInterface",
-      "date": "2019-11-26",
-      "url": "static/md/java/java8/lambda/java8-lambda(FunctionalInterface).md",
-      "type": "java"
     }
+  ],
+  "linux": [
   ]
 }
